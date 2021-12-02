@@ -1,7 +1,7 @@
 //
 //  Rps.swift
 //
-//  Created by Jenoe Baltoe
+//  Created by Jenoe Balote
 //  Created on 2021-12-02
 //  Version 1.0
 //  Copyright (c) 2021 Jenoe Balote. All rights reserved.
@@ -11,8 +11,7 @@
 //
 import Foundation
 
-// This function generates a random rock, paper or scissors choice as the
-// bot's choice
+// This function generates the choice of the computer.
 func cpuMove() -> String {
 
     let lowerNum = 0
@@ -35,7 +34,7 @@ func cpuMove() -> String {
     return cpuMoveValue
 }
 
-// This function returns who won
+// This function determines the winner of the game.
 func gameWinner(usrMove: String, cpuMove: String) -> String {
 
     let gameWinnerValue: String
@@ -54,9 +53,7 @@ func gameWinner(usrMove: String, cpuMove: String) -> String {
     return gameWinnerValue
 }
 
-// Takes in user input, makes sure it is rock paper or scissors, finds the
-// random bot choice and who wins. Then display it to the user.
-// User prompt
+// Input
 print("This is the Rock, Paper, Scissors program.")
 print("\nChoose your move (rock, paper, scissors): ", terminator: "")
 
@@ -67,7 +64,7 @@ guard let usrMove = readLine(), !usrMove.isEmpty else {
     exit(001)
 }
 
-// Validates that the user entered rock, paper or scissors
+// Validates the user input
 switch usrMove {
 case "rock", "paper", "scissors":
     break
@@ -77,11 +74,11 @@ default:
     exit(001)
 }
 
-// Gets bot choice and who won
+// Call functions
 let cpuMoveValue = cpuMove()
 let gameWinnerValue = gameWinner(usrMove: usrMove, cpuMove: cpuMoveValue)
 
-// Display it to the user
+// Output
 print("The computer chose: \(cpuMoveValue)")
 print("\(gameWinnerValue)")
 
